@@ -293,7 +293,7 @@ namespace papersearch
 
             Navigate(treebrowser, "https://sci-hub.tw/" + content);
             textbox2.Text = "https://sci-hub.tw/" + content;
-            tc1.SelectedIndex = 1;
+            tc1.SelectedIndex = 2;
 
         }
 
@@ -310,13 +310,13 @@ namespace papersearch
         {
             string result = textbox3.Text.ToString();
             //MessageBox.Show(result);
-            Navigate(treebrowser3, "https://translate.google.cn/");
+            Navigate(treebrowser3, "https://cn.bing.com/translator/");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Navigate(mainbrowser, "https://www.researchgate.net/");
-            Navigate(treebrowser3, "https://translate.google.cn/");
+            Navigate(treebrowser3, "https://cn.bing.com/translator/");
             Navigate(treebrowser, "https://sci-hub.tw/");
         }
 
