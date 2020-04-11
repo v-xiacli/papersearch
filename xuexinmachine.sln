@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xuexinmachine", "xuexinmachine\xuexinmachine.csproj", "{B1CA70F1-455B-4F76-86B5-49B20445228F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1CA70F1-455B-4F76-86B5-49B20445228F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CA70F1-455B-4F76-86B5-49B20445228F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CA70F1-455B-4F76-86B5-49B20445228F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CA70F1-455B-4F76-86B5-49B20445228F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {130054F3-0A61-4DDC-AABB-4C233C72B416}
+	EndGlobalSection
+EndGlobal
