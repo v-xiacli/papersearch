@@ -35,7 +35,8 @@ namespace papersearch
         {
 
             InitializeComponent();
-           
+            Navigate(treebrowser3, "https://xs.gufenxueshu.com/scholar?q= ");
+
         }
 
 
@@ -54,11 +55,13 @@ namespace papersearch
             }
             try
             {
+                //MessageBox.Show(address);
                 mybrowser.Navigate(new Uri(address));
-                
+
             }
-            catch (System.UriFormatException)
+            catch (System.UriFormatException e)
             {
+                //MessageBox.Show(e.ToString());
                 return;
             }
         }
@@ -67,13 +70,13 @@ namespace papersearch
         private void ReadArtical()
         {
 
-            
+
 
         }
 
         private void Treebrowser_LoadCompleted(object sender, NavigationEventArgs e)
         {
-           
+
         }
 
         public void SuppressScriptErrors(WebBrowser wb, bool Hide)
@@ -89,17 +92,17 @@ namespace papersearch
 
         private void tb2_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-           
+
         }
 
         private void readbook()
         {
-           
+
         }
 
         private void Treebrowser_LoadCompleted1(object sender, NavigationEventArgs e)
         {
-           
+
         }
 
         private delegate void UpdateUIDelegate();
@@ -108,7 +111,7 @@ namespace papersearch
 
         private void ThreadUpdateUI()
         {
-            
+
         }
 
         bool change = true;
@@ -183,7 +186,7 @@ namespace papersearch
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
 
@@ -194,32 +197,54 @@ namespace papersearch
                 Encoding gb2312 = Encoding.GetEncoding(1200);
                 Encoding uft8 = Encoding.GetEncoding("gb2312");
                 byte[] temp = gb2312.GetBytes(str);
-                MessageBox.Show("gb2312的编码的字节个数：" + temp.Length);
+                //MessageBox.Show("gb2312的编码的字节个数：" + temp.Length);
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    //   MessageBox.Show(Convert.ToUInt16(temp[i]).ToString());
+                    //   //MessageBox.Show(Convert.ToUInt16(temp[i]).ToString());
                 }
                 byte[] temp1 = Encoding.Convert(gb2312, uft8, temp);
-                MessageBox.Show("uft8的编码的字节个数：" + temp1.Length);
+                //MessageBox.Show("uft8的编码的字节个数：" + temp1.Length);
                 for (int i = 0; i < temp1.Length; i++)
                 {
-                    //  MessageBox.Show(Convert.ToUInt16(temp1[i]).ToString());
+                    //  //MessageBox.Show(Convert.ToUInt16(temp1[i]).ToString());
                 }
                 string result = uft8.GetString(temp1);
                 return result;
             }
             catch (Exception ex)//(UnsupportedEncodingException ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 return null;
             }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            
-            string result = textbox1.ToString();
-            Navigate(mainbrowser, "https://www.researchgate.net/search?q="+result.Replace(" ","+"));
+
+            string result = textbox1.Text.ToString();
+            string a = result.Replace("(", " ").Replace(")", " ").Replace("\"", "").Replace("“", "").Replace(" ", "+");
+            Navigate(mainbrowser, "https://www.researchgate.net/search?q=" + a);
+            /*
+            string temp = textbox1.Text;
+            int start = result.IndexOf(temp);
+            change = false;
+            while (start > 0)
+            {
+                textbox1.Text += result.Substring(start, start + 100 > result.Length ? result.Length - start - 1 : 100) + "\r\n";
+                textbox1.Text += "----------------------------" + "\r\n";
+                start = result.IndexOf(temp, start + 1);
+            }
+            */
+
+
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+
+            string result = textbox3.Text.ToString();
+            //MessageBox.Show(result);
+            Navigate(treebrowser3, "https://xs.gufenxueshu.com/scholar?q=" + result.Replace("(", " ").Replace(")", " ").Replace("\"", "").Replace(" ", "+"));
             /*
             string temp = textbox1.Text;
             int start = result.IndexOf(temp);
@@ -254,22 +279,50 @@ namespace papersearch
         {
             textbox1.Text = "";
             string content = textbox1_Copy.Text;
-            int begin=content.IndexOf("DOI:");
-            if(begin>=0)
+            int begin = content.IndexOf("DOI:");
+            if (begin >= 0)
             {
-                content = content.Substring(begin+5);
+                content = content.Substring(begin + 5);
             }
 
             int end = content.IndexOf("ISBN:");
             if (end > 0)
             {
-                content = content.Substring(0,content.Length- end);
+                content = content.Substring(0, content.Length - end);
             }
 
-            Navigate(treebrowser, "https://www.sci-hub.tw/" + content);
-            textbox2.Text = "https://www.sci-hub.tw/" + content;
+            Navigate(treebrowser, "https://sci-hub.tw/" + content);
+            textbox2.Text = "https://sci-hub.tw/" + content;
             tc1.SelectedIndex = 1;
 
+        }
+
+        private void button3_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            string result = textbox3.Text.ToString();
+            //MessageBox.Show(result);
+            Navigate(treebrowser3, "http://www.iciba.com/" + result.Replace(" ", "%20"));
+
+       
+        }
+
+        private void button3_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            string result = textbox3.Text.ToString();
+            //MessageBox.Show(result);
+            Navigate(treebrowser3, "https://translate.google.cn/");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Navigate(mainbrowser, "https://www.researchgate.net/");
+            Navigate(treebrowser3, "https://translate.google.cn/");
+            Navigate(treebrowser, "https://sci-hub.tw/");
+        }
+
+        private void button3_Copy2_Click(object sender, RoutedEventArgs e)
+        {
+            Navigate(treebrowser3, "https://gg.stdio.io/webhp");
         }
     }
 

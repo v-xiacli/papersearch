@@ -5,31 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:papersearch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1399">
+        Title="MainWindow" Height="700" Width="1399" Loaded="Window_Loaded">
     <Grid>
         <Viewbox>
             <TabControl x:Name="tc1" HorizontalAlignment="Left" Height="680" Margin="4,-1,-1,-9" VerticalAlignment="Top" Width="1388">
-            <TabItem x:Name="tb1" Header="DOI">
-                <Grid Background="#FFE5E5E5" Margin="-18,0,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1061*"/>
-                        <ColumnDefinition Width="282*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="53" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="505"  Margin="38,10,0,0"/>
-                    <Button x:Name="button1" Content="check paper name" HorizontalAlignment="Left" Margin="548,12,0,0" VerticalAlignment="Top" Width="157" Click="button1_Click" Height="24"/>
-                    <Button x:Name="button2" Content="Search Doi in SCIHUB" HorizontalAlignment="Left" Margin="1006,12,0,0" VerticalAlignment="Top" Width="160" Click="button2_Click" Height="24" Grid.ColumnSpan="2"/>
-                    <WebBrowser x:Name="mainbrowser" HorizontalAlignment="Left" Height="570" Margin="10,68,0,0" VerticalAlignment="Top" Width="1376" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textbox1_Copy" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" KeyDown="textbox1_KeyDown" Margin="710,12,0,0"/>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="tb2" Header="SCI-HUB" MouseDown="tb2_MouseDoubleClick">
-                <Grid Background="#FFE5E5E5">
-                    <WebBrowser x:Name="treebrowser" HorizontalAlignment="Left" Height="586" Margin="10,52,0,0" VerticalAlignment="Top" Width="1358"/>
-                    <TextBox x:Name="textbox2" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1373" KeyDown="textbox1_KeyDown" Margin="10,12,0,0"/>
+                <TabItem x:Name="tb1" Header="DOI">
+                    <Grid Background="#FFE5E5E5" Margin="-18,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="99*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="990*"/>
+                            <ColumnDefinition Width="293*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="53" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="505"  Margin="38,10,0,0" Grid.ColumnSpan="3"/>
+                        <Button x:Name="button1" Content="check paper name" HorizontalAlignment="Left" Margin="435,12,0,0" VerticalAlignment="Top" Width="157" Click="button1_Click" Height="24" Grid.Column="2"/>
+                        <Button x:Name="button2" Content="Search Doi in SCIHUB" HorizontalAlignment="Left" Margin="893,12,0,0" VerticalAlignment="Top" Width="160" Click="button2_Click" Height="24" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <WebBrowser x:Name="mainbrowser" HorizontalAlignment="Left" Height="570" Margin="10,68,0,0" VerticalAlignment="Top" Width="1376" Grid.ColumnSpan="4"/>
+                        <TextBox x:Name="textbox1_Copy" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" KeyDown="textbox1_KeyDown" Margin="597,12,0,0" Grid.Column="2"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tb3" Header="Google Scholar">
+                    <Grid Background="#FFE5E5E5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="111*"/>
+                            <ColumnDefinition Width="1267*"/>
+                        </Grid.ColumnDefinitions>
+                        <WebBrowser x:Name="treebrowser3" HorizontalAlignment="Left" Height="586" Margin="10,52,0,0" VerticalAlignment="Top" Width="1358" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="textbox3" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="555" KeyDown="textbox1_KeyDown" Margin="10,12,0,0" Grid.ColumnSpan="2"/>
+                        <Button x:Name="button3" Content="Check Paper Name google" HorizontalAlignment="Left" Margin="459,0,0,601" VerticalAlignment="Bottom" Width="157" Click="button3_Click" Height="47" Grid.Column="1"/>
+                        <Button x:Name="button3_Copy" Content="Iciba" HorizontalAlignment="Left" Margin="621,0,0,622" VerticalAlignment="Bottom" Width="74" Click="button3_Copy_Click" Height="26"  Grid.Column="1"/>
+                        <Button x:Name="button2_Copy" Content="Search Doi in SCIHUB" HorizontalAlignment="Left" Margin="1097,19,0,0" VerticalAlignment="Top" Width="160" Click="button2_Click" Height="24" Grid.Column="1"/>
+                        <TextBox x:Name="textbox1_Copy1" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="277" KeyDown="textbox1_KeyDown" Margin="807,12,0,0" Grid.Column="1"/>
+                        <Button x:Name="button3_Copy1" Content="Google Trans" HorizontalAlignment="Left" Margin="621,0,0,598" VerticalAlignment="Bottom" Width="157" Click="button3_Copy1_Click" Height="24"  Grid.Column="1"/>
+                        <Button x:Name="button3_Copy2" Content="Nothing" HorizontalAlignment="Left" Margin="704,0,0,622" VerticalAlignment="Bottom" Width="74" Click="button3_Copy2_Click" Height="26"  Grid.Column="1"/>
+                    </Grid>
 
-                </Grid>
-            </TabItem>
-        </TabControl>
-            </Viewbox>
+                </TabItem>
+
+                <TabItem x:Name="tb2" Header="SCI-HUB" MouseDown="tb2_MouseDoubleClick">
+                    <Grid Background="#FFE5E5E5">
+                        <WebBrowser x:Name="treebrowser" HorizontalAlignment="Left" Height="586" Margin="10,52,0,0" VerticalAlignment="Top" Width="1358"/>
+                        <TextBox x:Name="textbox2" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1373" KeyDown="textbox1_KeyDown" Margin="10,12,0,0"/>
+
+                    </Grid>
+
+                </TabItem>
+
+            </TabControl>
+        </Viewbox>
+
     </Grid>
 </Window>
